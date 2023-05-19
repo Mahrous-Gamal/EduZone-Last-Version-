@@ -1,53 +1,54 @@
-let arrow = document.querySelectorAll(".arrow");
-for (var i = 0; i < arrow.length; i++) {
-  arrow[i].addEventListener("click", (e) => {
-    let arrowParent = e.target.parentElement.parentElement;
-    arrowParent.classList.toggle("showMenu");
-  });
+function success() {
+    Swal.fire({
+        // imageHeight:200,
+        icon: 'success',
+        // timer: 10000,
+        confirmButtonColor: '#ffc107',
+        imageUrl: "https://g.top4top.io/p_2691mempc1.jpeg",
+        title: 'Thanks, Mahrous!',
+        text: "The purchase was completed successfully!",
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    })
 }
-let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".bx-menu");
-sidebarBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("closee");
+function error() {
+    Swal.fire({
+        // imageHeight:200,
+        icon: 'error',
+        confirmButtonColor: '#ffc107',
+        imageUrl: "https://g.top4top.io/p_2691mempc1.jpeg",
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    })
+}
+
+// Get the button element
+var toTopBtn = document.getElementById("toTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        toTopBtn.style.display = "block";
+    } else {
+        toTopBtn.style.display = "none";
+    }
+};
+
+// When the user clicks on the button, scroll to the top of the document
+
+toTopBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 });
-
-let number = document.querySelector(".number-of-year");
-let info = document.querySelector(".year-info");
-
-number.addEventListener("click", () => {
-  infoo.classList.toggle("show")  });
-
-
-let numbers = document.querySelectorAll(".number-of-year");
-let infoo = document.querySelectorAll(".year-info");
-
-numbers.forEach(item=>{
-  item.addEventListener("click",() => {
-infoo.forEach(ele =>{
-  if(item.dataset.index==ele.dataset.index)
-  {
-    ele.classList.toggle("show");
-  }
-})
-
-  });
-})
-
-window.onload = function () {
-  var txtPassword = document.getElementById("txtPassword");
-  var txtConfirmPassword = document.getElementById("txtConfirmPassword");
-  txtPassword.onchange = ConfirmPassword;
-  txtConfirmPassword.onkeyup = ConfirmPassword;
-  function ConfirmPassword() {
-      txtConfirmPassword.setCustomValidity("");
-      if (txtPassword.value != txtConfirmPassword.value) {
-          txtConfirmPassword.setCustomValidity("Passwords do not match.");
-      }
-  }
-}
-
-
-
-
-
-
